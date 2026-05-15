@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surprise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="desktop">
+
+    <!-- 첫 시작 화면 -->
+    <div class="window main-window" id="mainWindow">
+      <div class="title-bar">
+        <span>Welcome</span>
+        <div class="title-buttons">
+          <div class="title-btn">?</div>
+          <div class="title-btn">×</div>
+        </div>
+      </div>
+
+      <div class="window-body center">
+        <div class="question">시작하시겠습니까?</div>
+
+        <button class="win-button" onclick="showMiniWindow()">시작</button>
+        <button class="win-button poop-btn" onclick="showPoopWindow()">똥</button>
+      </div>
+    </div>
+
+    <!-- 사용자 인증 창 -->
+    <div class="window auth-window" id="authWindow">
+      <div class="title-bar">
+        <span>USER AUTH</span>
+        <div class="title-buttons">
+          <div class="title-btn">?</div>
+          <div class="title-btn">×</div>
+        </div>
+      </div>
+
+      <div class="window-body center">
+        <div class="question">
+          잠깐.<br><br>
+          사용자 인증이 필요합니다.<br><br>
+          당신은 정말 ◝(⁰▿<) 홍연우 님이 맞습니까?
+        </div>
+
+        <button class="win-button" onclick="startTest()">예</button>
+        <button class="win-button" onclick="showPoopWindow()">아니오</button>
+      </div>
+    </div>
+
+    <!-- 똥 사진 창 -->
+    <div class="window photo-window" id="poopWindow">
+      <div class="title-bar">
+        <span>poop.jpg</span>
+        <div class="title-buttons">
+          <div class="title-btn">_</div>
+          <div class="title-btn">×</div>
+        </div>
+      </div>
+
+      <div class="window-body center">
+        <img src="poop.jpg" class="poop-image" alt="poop image" />
+        <button class="win-button back-btn" onclick="goBackMain()">뒤로 가기</button>
+      </div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="window quiz-window" id="quiz1">
+      <div class="title-bar">
+        <span>TEST.exe</span>
+        <div class="title-buttons">
+          <div class="title-btn">?</div>
+        </div>
+      </div>
+
+      <div class="window-body center">
+        <div class="question">Q1. 우리가 처음 만난 곳은?</div>
+
+        <button class="win-button" onclick="goQuiz2()">서울송화초등학교</button>
+
+        <button class="win-button" onclick="currentQuiz=1; showWrong('wrong1.jpg')">
+          마곡중학교
+        </button>
+
+        <button class="win-button" onclick="currentQuiz=1; showWrong('wrong1.jpg')">
+          서울여자대학교
+        </button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="window quiz-window" id="quiz2">
+      <div class="title-bar">
+        <span>TEST.exe</span>
+      </div>
+
+      <div class="window-body center">
+        <div class="question">Q2. 운영자가 가장 좋아하는 가수는?</div>
+
+        <button class="win-button" onclick="currentQuiz=2; showWrong('wrong2.jpg', '땡!!!<br><br>그래이시 아닙니다.')">
+          그래이시 에이브람스
+        </button>
+
+        <button class="win-button" onclick="currentQuiz=2; showWrong('wrong2.jpg', '땡!!!<br><br>애이브람스 아닙니다.')">
+          그레이시 애이브람스
+        </button>
+
+        <button class="win-button" onclick="goQuiz3()">그레이시 에이브람스</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="window quiz-window" id="quiz3">
+      <div class="title-bar">
+        <span>TEST.exe</span>
+      </div>
+
+      <div class="window-body center">
+        <div class="question">Q3. 당신이 운영자의 생일에 선물한 책은?</div>
+
+        <button class="win-button" onclick="currentQuiz=3; showWrong('wrong3.jpg', '겟습니까?')">
+          자몽살구클럽
+        </button>
+
+        <button class="win-button" onclick="currentQuiz=3; showWrong('wrong4.jpg', '브람스를조아하세요?')">
+          브람스를 좋아하세요...
+        </button>
+
+        <button class="win-button" onclick="goQuiz4()">말테의 수기</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="window quiz-window" id="quiz4">
+      <div class="title-bar">
+        <span>TEST.exe</span>
+      </div>
+
+      <div class="window-body center">
+        <div class="question">Q4. 같이 본 영화는?</div>
+
+        <button class="win-button" onclick="currentQuiz=4; showWrong('wrong5.jpg', '폴메스깔이 그레이시와 헤어지길ㅈㅂ')">
+          햄릿
+        </button>
+
+        <button class="win-button" onclick="goQuiz5()">햄넷</button>
+
+        <button class="win-button" onclick="currentQuiz=4; showWrong('wrong6.jpg', '땡!!!<br><br>햄부기스딱스온앤온은 대체 뭡니까?')">
+          햄부기스딱스온앤온
+        </button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="window quiz-window" id="quiz5">
+      <div class="title-bar">
+        <span>TEST.exe</span>
+      </div>
+
+      <div class="window-body center">
+        <div class="question">Q5. 운영자가 최근 저장한 사진 속 연예인은?</div>
+
+        <button class="win-button" onclick="currentQuiz=5; showWrong('wrong7.jpg', '땡!!!<br><br>마틴 아닙니다.')">
+          마틴
+        </button>
+
+        <button class="win-button" onclick="finalError()">에이나</button>
+
+        <button class="win-button" onclick="currentQuiz=5; showWrong('wrong8.jpg', '땡!!!<br><br>버논 아닙니다.')">
+          버논
+        </button>
+      </div>
+    </div>
+
+    <!-- 공용 오답 창 -->
+    <div class="window wrong-window" id="wrongWindow">
+      <div class="title-bar">
+        <span>ERROR</span>
+        <div class="title-buttons">
+          <div class="title-btn">×</div>
+        </div>
+      </div>
+
+      <div class="window-body center">
+        <div class="question" id="wrongText">
+          땡!!!<br><br>
+          당신은 정말 홍연우 님이 맞습니까?
+        </div>
+
+        <img src="wrong1.jpg" class="poop-image" id="wrongImage" alt="wrong image" />
+
+        <button class="win-button back-btn" onclick="backToQuiz()">뒤로 가기</button>
+      </div>
+    </div>
+    <!-- 생일 코드 입력 창 -->
+<div class="window birthday-window" id="birthdayWindow">
+  <div class="title-bar">
+    <span>FINAL LOCK</span>
+    <div class="title-buttons">
+      <div class="title-btn">×</div>
+    </div>
+  </div>
+
+  <div class="window-body center">
+    <div class="question">
+      운영자의 생일은? <br>
+      <span class="small-text">(6자리)</span>
+    </div>
+
+    <input
+      id="birthdayInput"
+      class="birthday-input"
+      type="text"
+      maxlength="6"
+      placeholder="예: 000000"
+      inputmode="numeric"
+    />
+
+<button
+  class="win-button runaway-btn"
+  id="birthdayCheckBtn"
+  onclick="checkBirthday()"
+  onmouseover="runAwayButton()"
+>
+  확인
+</button>
+
+    <div id="birthdayMessage" class="birthday-message"></div>
+  </div>
+</div>
+
+<!-- 바이너리 코드 창 -->
+<div class="window binary-window" id="binaryWindow">
+  <div class="title-bar">
+    <span>DECODE_THIS.txt</span>
+    <div class="title-buttons">
+      <div class="title-btn">?</div>
+    </div>
+  </div>
+
+  <div class="window-body center">
+    <div class="question">
+      FINAL MESSAGE LOCKED
+    </div>
+
+    <div class="binary-code">
+      11001010 11001001 11000001 11000111<br>
+      11000001 11001100 00100000 11000001 11010110<br>
+      11000001 11010101 11000000 11001001 00100000<br>
+      11011111 11000011 11000011 11001111
+    </div>
+
+    <p class="small-text">
+      힌트: 바이너리 → 텍스트 디코딩
+    </p>
+  </div>
+</div>
+
+<!-- 숨겨진 이스터에그 -->
+<div class="easter-egg" onclick="openEasterEgg()">?</div>
+
+<!-- 이스터에그 창 -->
+<div class="window egg-window" id="eggWindow">
+  <div class="title-bar">
+    <span>hidden_memory.exe</span>
+    <div class="title-buttons">
+      <div class="title-btn">×</div>
+    </div>
+  </div>
+
+  <div class="window-body center">
+    <div class="question">
+      [숨겨진 파일 발견 (,,• ֊ •,,)♡ ]<br>
+      <a herf = "https://www.youtube.com/watch?v=aq4_0vH2728&list=RDaq4_0vH2728&start_radio=1">
+        파일을 여시겠습니까?</a>
+    </div>
+
+<div style="margin-top: 16px;">
+
+  <button
+    class="win-button"
+    onclick="window.open(
+      'https://www.youtube.com/watch?v=JOhTmgtevXc&list=RDJOhTmgtevXc&start_radio=1',
+      '_blank'
+    )"
+  >
+    확인
+  </button>
+
+  <button
+    class="win-button"
+    onclick="eggWindow.style.display='none'"
+  >
+    닫기
+  </button>
+
+</div>
+  </div>
+</div>
+
+<!-- 엔딩 크레딧 -->
+<!-- 스타워즈 엔딩 -->
+<div class="credits-screen" id="creditsScreen">
+
+  <audio id="endingMusic" src="ending.mp3"></audio>
+  <audio id="shutdownSound" src="shutdown.mp3"></audio>
+
+  <div class="credits-content">
+
+    <h2>friendship.exe</h2>
+
+    <p>
+      A long time ago<br>
+      in a 술자리 far far away...
+    </p>
+
+    <p>made by 지혜조</p>
+    <p>directed by 지혜조</p>
+    <p>concepted by 지혜조</p>
+    <p>memory provided by 연우홍</p>
+
+    <p>special thanks to 지피띠니</p>
+    <p>friendship.dll loaded successfully</p>
+    <p>흑역사.zip restored</p>
+
+    <img src="ending5.jpg" class="credit-photo">
+
+    <h1>THANK YOU FOR PLAYING</h1>
+
+    <p class="ending-small">
+      SYSTEM SHUTDOWN INITIATED...
+    </p>
+
+  </div>
+</div>
+
+<!-- 마지막 블랙아웃 -->
+<div class="shutdown-screen" id="shutdownScreen">
+  <div class="shutdown-text">
+    It is now safe to turn off your computer.
+  </div>
+</div>
+
+
+  </div>
+
+  <div class="taskbar">
+    <div class="time" id="time"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <div class="ticker">
+  <div class="ticker-text" id="tickerText">
+    friendship.dll loaded · 흑역사.zip detected · 추억 파일 복구 중 · ERROR_NOT_ENOUGH_MONEY · 운영자 감시 중 · WARNING: 해외 이동 감지 · 카톡 읽씹 금지 · memory_recovery.exe running · 거리 증가 예정... · final_message.txt locked · 햄부기스딱스온앤온.dll 로드 실패 · memory loss not detected · 버논 아님 → 제거 완료 · EMERGENCY: 정신병 감지됨
+    · friendship.dll loaded · 흑역사.zip detected · 추억 파일 복구 중 · ERROR_NOT_ENOUGH_MONEY · 운영자 감시 중 · WARNING: 해외 이동 감지 · 카톡 읽씹 금지 · memory_recovery.exe running · 거리 증가 예정... · final_message.txt locked · 햄부기스딱스온앤온.dll 로드 실패 · memory loss not detected · 버논 아님 → 제거 완료 · EMERGENCY: 정신병 감지됨
+
+  </div>
+</div>
+</body>
+</html>

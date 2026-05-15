@@ -1,0 +1,452 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #008080;
+  font-family: "MS Sans Serif", "Tahoma", sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  padding: 30px;
+}
+
+.window {
+  position: absolute;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: 2px 2px 0 #000000;
+}
+
+.title-bar {
+  height: 24px;
+  background: #000080;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.title-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.title-btn {
+  width: 18px;
+  height: 18px;
+  background: #c0c0c0;
+  color: #000;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.window-body {
+  padding: 24px;
+  color: #000;
+}
+
+.center {
+  text-align: center;
+}
+
+.main-window {
+  width: 360px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.question {
+  font-size: 18px;
+  margin: 20px 0 26px;
+}
+
+.win-button {
+  min-width: 110px;
+  padding: 8px 18px;
+  margin: 5px;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.win-button:active {
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+.poop-btn {
+  display: block;
+  margin: 10px auto 0;
+}
+
+.mini-window {
+  width: 310px;
+  display: none;
+}
+
+.mini-content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #00aa00;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.photo-window {
+  width: 360px;
+  display: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.poop-image {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  margin-bottom: 18px;
+}
+
+.back-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+.taskbar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 36px;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}
+
+.start {
+  height: 28px;
+  padding: 0 12px;
+  font-weight: bold;
+}
+
+.time {
+  margin-left: auto;
+  height: 28px;
+  min-width: 72px;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.auth-window,
+.quiz-window,
+.wrong-window {
+  width: 420px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.quiz-window .win-button {
+  display: block;
+  margin: 12px auto;
+  width: 220px;
+}
+
+.birthday-window,
+.binary-window {
+  width: 520px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 9999;
+}
+
+.birthday-input {
+  width: 150px;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  font-family: "MS Sans Serif", "Tahoma", sans-serif;
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  margin-bottom: 16px;
+}
+
+.birthday-message {
+  margin-top: 12px;
+  font-weight: bold;
+  color: #800000;
+}
+
+.correct-effect {
+  animation: successBlink 0.12s infinite alternate;
+}
+
+@keyframes successBlink {
+  from {
+    background: #008080;
+  }
+  to {
+    background: #00ff00;
+  }
+}
+
+.binary-code {
+  background: #000;
+  color: #00ff00;
+  padding: 18px;
+  font-family: monospace;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: left;
+  border: 2px inset #c0c0c0;
+  user-select: text;
+}
+
+.small-text {
+  font-size: 13px;
+}
+
+/* 하단 전광판 로그 */
+.ticker {
+  position: fixed;
+  left: 0;
+  bottom: 36px;
+  width: 100%;
+  height: 24px;
+  background: #000;
+  color: #00ff00;
+  overflow: hidden;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 24px;
+  z-index: 99999;
+  border-top: 2px solid #404040;
+}
+
+.ticker-text {
+  white-space: nowrap;
+  display: inline-block;
+  animation: tickerMove 18s linear infinite;
+}
+
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 도망가는 확인 버튼 */
+.runaway-btn {
+  position: relative;
+}
+
+/* 숨겨진 이스터에그 */
+.easter-egg {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+
+  width: 18px;
+  height: 18px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  color: rgba(255,255,255,0.18);
+
+  cursor: pointer;
+
+  z-index: 99998;
+
+  transition: 0.2s;
+}
+
+.easter-egg:hover {
+  color: rgba(255,255,255,0.9);
+  transform: scale(1.3);
+}
+
+.easter-egg:hover {
+  color: #ffffff;
+}
+
+/* 이스터에그 창 */
+.egg-window {
+  width: 360px;
+  left: 12%;
+  top: 18%;
+  display: none;
+  z-index: 99999;
+}
+
+/* 엔딩 크레딧 */
+/* 스타워즈 엔딩 */
+
+.credits-screen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  overflow: hidden;
+  display: none;
+  perspective: 400px;
+  z-index: 999999;
+}
+
+.credits-content {
+
+  position: absolute;
+
+  width: 80%;
+  left: 10%;
+
+  bottom: -300%;
+
+  color: #ffe81f;
+
+  font-family: Arial, sans-serif;
+
+  text-align: center;
+
+  transform-origin: 50% 100%;
+
+  transform: rotateX(25deg);
+
+  animation: starWarsCredits 50s linear forwards;
+}
+
+@keyframes starWarsCredits {
+
+  from {
+    bottom: -300%;
+  }
+
+  to {
+    bottom: 220%;
+  }
+}
+
+.credits-content h1 {
+  font-size: 56px;
+  margin: 120px 0;
+}
+
+.credits-content h2 {
+  font-size: 42px;
+  margin-bottom: 80px;
+}
+
+.credits-content p {
+  font-size: 34px;
+  line-height: 2;
+  margin: 50px 0;
+}
+
+.credit-photo {
+
+  width: 420px;
+
+  max-width: 90%;
+
+  margin: 80px auto;
+
+  display: block;
+
+  border: 6px solid #ffe81f;
+
+  box-shadow: 0 0 30px rgba(255,232,31,0.5);
+}
+
+.ending-small {
+  font-size: 22px !important;
+  opacity: 0.7;
+}
+
+/* 마지막 블루스크린 종료 */
+
+.shutdown-screen {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: #000080;
+
+  color: white;
+
+  display: none;
+
+  z-index: 99999999;
+
+  font-family: "MS Sans Serif", sans-serif;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.shutdown-text {
+  font-size: 34px;
+}
