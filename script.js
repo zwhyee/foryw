@@ -1,3 +1,14 @@
+const mainBgm = document.getElementById("mainBgm");
+let bgmStarted = false;
+
+function startMainBgm() {
+  if (bgmStarted) return;
+
+  mainBgm.volume = 0.35;
+  mainBgm.play().catch(() => {});
+  bgmStarted = true;
+}
+
 const endingMusic = document.getElementById("endingMusic");
 const shutdownSound = document.getElementById("shutdownSound");
 const shutdownScreen = document.getElementById("shutdownScreen");
@@ -41,6 +52,8 @@ function hideAllWindows() {
 }
 
 function showMiniWindow() {
+  startMainBgm();
+
   hideAllWindows();
   authWindow.style.display = "block";
 }
@@ -163,14 +176,22 @@ function checkBirthday() {
 
     document.body.classList.add("correct-effect");
 
-    setTimeout(() => {
-      document.body.classList.remove("correct-effect");
-      birthdayWindow.style.display = "none";
-binaryWindow.style.display = "block";
-
 setTimeout(() => {
-  showCredits();
-}, 12000);    }, 1200);
+
+  // 번쩍 효과 빨리 종료
+  document.body.classList.remove("correct-effect");
+
+  birthdayWindow.style.display = "none";
+
+  // 바이너리 창 표시
+  binaryWindow.style.display = "block";
+
+  // 바이너리 창 오래 띄우기
+  setTimeout(() => {
+    showCredits();
+  }, 60000);
+
+}, 1200);
 
   } else {
     birthdayMessage.textContent = ";;;";
@@ -219,24 +240,19 @@ function openEasterEgg() {
 }
 
 function showCredits() {
-
   binaryWindow.style.display = "none";
+
+  mainBgm.pause();
+  mainBgm.currentTime = 0;
 
   creditsScreen.style.display = "block";
 
   endingMusic.volume = 0.7;
-
   endingMusic.play();
 
-  // 엔딩 끝나고 종료화면
-
   setTimeout(() => {
-
     creditsScreen.style.display = "none";
-
     shutdownScreen.style.display = "flex";
-
     shutdownSound.play();
-
-  }, 52000);
+  }, 60000);
 }

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <audio id="mainBgm" src="main-bgm.mp3" loop></audio>
   <div class="desktop">
 
     <!-- 첫 시작 화면 -->
@@ -123,7 +124,7 @@
           자몽살구클럽
         </button>
 
-        <button class="win-button" onclick="currentQuiz=3; showWrong('wrong4.jpg', '땡입니다!<br> 대신 브이 허키를 드리겟읍니다')">
+        <button class="win-button" onclick="currentQuiz=3; showWrong('wrong4.jpg', '땡입니다!<br> 대신 브이하는 허키를 드리겟읍니다')">
           브람스를 좋아하세요...
         </button>
 
@@ -245,25 +246,11 @@
     </div>
 
     <div class="binary-code">
-7Jew7Jqw44WO44WH44WO44WHIOyngOq4iCDsnbTqsbgg67O06rOg7J6H64uk66m0IOy
-9lOuTnOulvCDtkoDsl4jri6TripQg6rGw6rKg7KeAP+OFi+OFiyDrgrTqsIAg7ISg66
-y866GcIOyWtOuWpCDqsowg7KKL7J2E6rmMIOyDneqwge2VmOuLpOqwgCDrhIjsnZgg6rO
-8IO2KueyEseyDgSDtjrjsp4Drgpgg6r2DIOyEoOusvOydgCDrp47snbQg67Cb7JWY7J2EI
-OqygyDqsJnslYTshJwg64K0IOyghOqzteydhCDsgrTroKTshJwgb25seSDrhIjrpbwg7JyE
-7ZWcIOybue2OmOydtOyngOulvCDtlZwg67KIIOunjOuTpOyWtOu0o+yWtC4uLiDtlZjrqbTshJw
-g7ZWcIOuyiOydtOudvOuPhCDsm4PsnYzsnbQg7YSw7KGM64uk66m0IOq3uOqxuOuhnCDshLHqs7Xsn
-oQg7ZuE7ZuEIOustO2KvCDsnqzrsIvsl4fquLgg67CU6528DQrsnKDrn70g7Jes7ZaJ7J2AIOyemCD
-qsJTri6TsmZTslrQ/IOyKpO2GoOumrCDrs7Tri4
-jquYwg64SI66y0IOyii+yVmOydhCDqsoMg6rCZ7J2A642wICjrgpjrkZAg6rCA6rOg
-7Iut64uk44WcKSDrgrTqsIAg7Jew65297J2AIOyekOyjvCDslYjtlZjsp4Drp4wg7I
-qk7Yag66asIOq8rOuwleq8rOuwlSDrs7Tqs6Ag7ZWY7Yq4IOuIhOultOqzoCDrhIjsn
-Zgg7J287IOB7J2EIOq2geq4iO2VtO2VnOuLqOuLpCAo7JW6666kIOuTpOqwiCDrlYzrp4
-jri6Qg64SIIOutkCDrk6PripTsp4Ag7ZmV7J247ZWoLi4pIOyVlO2KvCDrjZQg7JOw66
-m0IOy9lOuTnCDrgpzrpqzrgqAg6rGwIOqwmeycvOuLiCDsnbTrp4wg6rCA67O86rKMIOyCrOueke2VtH5+
+7ZmNIOyXsCDsmrAg67CUIOu2gA0KDQrjhYvjhYvjhYsg67ul7J206rWsIOyngOq4iCDsnbTqsbgg67O06rOg7J6I64uk66m0IOy9lOuTnOulvCDsnpgg7ZKA7JeI64uk64qUIOqxsOqyoOyngD/jhY7jhY4g64KY66aEIOq3uCDripDrgozsnYQg64K067O066Ck6rOgIOuFuOugpe2WiOuKlOuNsCDqtJzssK7slZfripTsp4Ag66qo66W06rKf64ukIO2Xm+ybg+ydjOuPhCDsm4PsnYzsnbTrnbzqs6Ag64KY64qUIOq3uOqxsOudvOuPhCDrp4zsobHtlaDrnpguLiA9Lj0g6re464OlIOyKpO2GoOumrOyXkCDrhIgg7Lmc6rWs65Ok7J20IOykgCDshKDrrLwg67O064uk6rCAIOuniOydjOydgCDquIntlZzrjbAg7IOd6rCB64KY64qUIOyEoOusvOuTpOydgCDsnbTrr7gg67Cb7JWY7J2EIOqygyDqsJnqs6AsIOykgOu5hOqwgCDslYjrkJwg7IOB7YOc7JeQ7IScIOyXsOudve2VmOq4sOyXkOuKlCDrmJAg6re466CH6rOgLCDqt7jrnpjshJwg7Je07Ius7Z6IIOynseq1rOq1tOumrOuLpOqwgCBvbmx5IOuEiOunjOydhCDsnITtlZwg7Ju57IKs7J207Yq466W8IOunjOuTpOyWtOu0o+yWtCDsnbTsiqTthLDsl5Dqt7jrj4Qg7Iio6rKo64an64qU642wIOuwnOqyrO2Wh+ycvOugpOuCmC4uIOu2gOuUlCDsnqzrsIvsl4fquLgg67CU652844WL44WL44Wc44WcDQoNCuycoOufvSDsl6ztlonsnYAg7J6YIOqwlOuLpOyZlOyWtD8g7Iqk7Yag66asIOuztOuLiOq5jCDrhIjrrLTrhIjrrLQg7KKL7JWY7J2EIOqygyDqsJnsnYDrjbAgKOuCmOuRkCDqsIDqs6Dsi63ri6TjhZwpIOuCtOqwgCDruYTroZ0g7Jew65297J2AIOyekOyjvCDslYjtlZjsp4Drp4wo44WI44WF7ZW07JqUKSDsiqTthqDrpqwg6rys67CV6rys67CVIOuztOq1rCDtlZjtirgg64iE66W06rOgIOuEiOydmCDsnbzsg4HsnYQg7ZWY66Oo7JeQ64+EIOuqh+uyiOydtOuCmCDqtoHquIjtlZzri6TripTqsbAg7JWM7JWE7KO86ri4IOyVlO2KvCDrjZQg7JOw66m0IOy9lOuTnCDquLjslrTsp4gg6rGwIOqwmeycvOuLiCDsnbTrp4wg6rCA67O86rKMIOyCrOueke2VtH5+
     </div>
 
     <p class="small-text">
-      힌트: https://www.base64decode.org/ko/ < 링크 들어가서 코드 붙여넣은 후 디코딩
+      * 힌트: https://www.base64decode.org/ko/
     </p>
   </div>
 </div>
@@ -337,7 +324,6 @@ m0IOy9lOuTnCDrgpzrpqzrgqAg6rGwIOqwmeycvOuLiCDsnbTrp4wg6rCA67O86rKMIOyCrOueke2VtH
 
     <p>special thanks to 지피띠니</p>
     <p>friendship.dll loaded successfully</p>
-    <p>흑역사.zip restored</p>
 
     <img src="ending5.jpg" class="credit-photo">
 
