@@ -55,7 +55,7 @@ function goBackMain() {
   mainWindow.style.display = "block";
 }
 
-function startTest() {
+function  tTest() {
   hideAllWindows();
   currentQuiz = 1;
   quiz1.style.display = "block";
