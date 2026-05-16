@@ -209,7 +209,7 @@ body {
 
 .birthday-window,
 .binary-window {
-  width: 520px;
+  width: 620px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -254,11 +254,19 @@ body {
   color: #00ff00;
   padding: 18px;
   font-family: monospace;
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 13px;
+  line-height: 1.6;
   text-align: left;
   border: 2px inset #c0c0c0;
   user-select: text;
+
+  max-height: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  white-space: normal;
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 .small-text {
@@ -285,8 +293,7 @@ body {
 .ticker-text {
   white-space: nowrap;
   display: inline-block;
-  animation: tickerMove 18s linear infinite;
-}
+  animation: tickerMove 32s linear infinite;}
 
 @keyframes tickerMove {
   from {

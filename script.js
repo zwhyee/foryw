@@ -55,7 +55,7 @@ function goBackMain() {
   mainWindow.style.display = "block";
 }
 
-function  tTest() {
+function startTest() {
   hideAllWindows();
   currentQuiz = 1;
   quiz1.style.display = "block";
@@ -85,7 +85,7 @@ function goQuiz5() {
   quiz5.style.display = "block";
 }
 
-function showWrong(imageName, textMessage) {
+function showWrong(imageName, textMessage = "땡!!!<br><br>당신은 정말 홍연우 님이 맞습니까?") {
   hideAllWindows();
 
   wrongImage.src = imageName;
